@@ -1,11 +1,15 @@
+// ferramenta de consumo de rotas
 import axios from 'axios'
+// hooks do react para controlar renderização e estados
 import { useEffect, useState } from 'react';
 
 const Produtos = () => {
-    const pizzas = [pizzas, setPizzas] = useState ([])
-
-    axios.get(" http://172.19.0.49/pizzariaoficial/api/v1/produto")
-    .then(response=>pizzas=response.data.data)
+    // Estado para guardar a lista de pizzas
+    const [pizzas, setPizzas] = useState (['Calabreza', 'Muçarela', 'Baiana' ])
+    // Consumir as pizzas da rota do backend
+    axios.get("http://172.19.0.49/pizzariaoficial/api/v1/produto")
+    .then(response => setPizzas(response.data.data))
+    .catch(error => console.log(error))
 
     // Mapeamento das pizzas da lista (iteração)
     const listaPizzas = pizzas.map(pizza => 
