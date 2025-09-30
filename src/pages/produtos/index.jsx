@@ -7,7 +7,7 @@ const Produtos = () => {
     // Estado para guardar a lista de pizzas
     const [pizzas, setPizzas] = useState (['Calabreza', 'Muçarela', 'Baiana' ])
     // Consumir as pizzas da rota do backend
-    axios.get("http://172.19.0.49/pizzariaoficial/api/v1/produto")
+    axios.get("http://172.19.0.49/pizzariateste/api/v1/produto")
     .then(response => setPizzas(response.data.data))
     .catch(error => console.log(error))
 
